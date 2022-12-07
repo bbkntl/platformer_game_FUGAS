@@ -7,11 +7,16 @@ public class Hearts : MonoBehaviour
 {
     [SerializeField] private GameObject[] objHearts;
     [SerializeField] private GameObject panelGameOver;
-    private int hearts = 3;
+    private int health = 3;
+    private int maxHealth = 3;
     public void AddHearts()
     {
-        hearts++;
+        health++;
         UpdateHearts();
+        if(health > maxHealth)
+        {
+            health = maxHealth;
+        }
     }
     public void GameOver()
     {
@@ -21,14 +26,14 @@ public class Hearts : MonoBehaviour
     
     public void RemuveHearts()
     {
-        hearts--;
+        health--;
         UpdateHearts();
     }
     void UpdateHearts()
     {
         for(int i =0; i<3; i++)
         {
-            if (hearts > i)
+            if (health > i)
             {
                 objHearts[i].SetActive(true);
             }
