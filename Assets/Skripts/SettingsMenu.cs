@@ -1,4 +1,4 @@
-using TMPro;
+/*using TMPro;
 using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -30,5 +30,5 @@ public class SettingsMenu : MonoBehaviour
     SingUserData.singletone.userName = userName;
     SceneManager.LoadScene(0);
     }
-}
+}*/
     
