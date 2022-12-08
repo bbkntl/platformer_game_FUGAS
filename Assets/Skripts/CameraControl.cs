@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {
-    /*[SerializeField] Transform player;
+    [SerializeField] Transform player;
     [SerializeField] float sensetyCam = 5;
     Transform cameraTransform;
     Vector3 deltaPosCam;
@@ -21,12 +21,12 @@ public class CameraControl : MonoBehaviour
         target.y = -0.5f;
         cameraTransform.position = Vector3.MoveTowards(cameraTransform.position, target, Time.deltaTime * sensetyCam);
     }
-}*/
+}
 
      
    
 
-   [SerializeField] private Transform player;
+   /*[SerializeField] private Transform player;
      private Vector3 pos;
 
     private void Awake()
@@ -40,7 +40,7 @@ public class CameraControl : MonoBehaviour
         pos.z = -10f;
         transform.position = Vector3.Lerp(transform.position, pos, Time.deltaTime);
     }
-}
+}*/
 
 /*[SerializeField] float sensetyCam = 5;
     [SerializeField] Transform player;
