@@ -94,6 +94,7 @@ public class Player : MonoBehaviour
 
        }*/
       
+     // if(Time.timeScale >=1)
        if (isGrounded) State = States.idle;
        
         if (Input.GetButton("Horizontal"))

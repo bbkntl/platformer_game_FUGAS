@@ -7,6 +7,7 @@ public class WeaponSckript : MonoBehaviour
 {
      [SerializeField] private TextMeshProUGUI textWeapon;
       public int weaponCount = 0;
+     
      private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Weapon")
@@ -16,6 +17,7 @@ public class WeaponSckript : MonoBehaviour
             GameObject weapon = collision.gameObject;
             Destroy(weapon);
         }
+      
         
     }
 }
