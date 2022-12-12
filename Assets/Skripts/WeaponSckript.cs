@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -12,7 +12,7 @@ public class WeaponSckript : MonoBehaviour
     {
         if (collision.tag == "Weapon")
         {
-            weaponCount += 1;
+            weaponCount += 3;
             textWeapon.text = weaponCount.ToString();
             GameObject weapon = collision.gameObject;
             Destroy(weapon);
@@ -20,4 +20,4 @@ public class WeaponSckript : MonoBehaviour
       
         
     }
-}
+}*/

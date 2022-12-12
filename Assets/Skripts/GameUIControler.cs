@@ -1,4 +1,4 @@
-/*using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -7,12 +7,12 @@ using UnityEngine.SceneManagement;
 public class GameUIControler : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI textUserName;
-[SerializeField] private TextMeshProUGUI textScore;
-private int score = 0;
+   [SerializeField] private TextMeshProUGUI textScore;
+   private int score = 0;
     void Start()
     {
       textUserName.text = SingUserData.singletone.userName;  
-    }*/
+    }
 
    
    
@@ -21,7 +21,7 @@ private int score = 0;
         score += Random.Range(1,5);
         textScore.text = "Score: " + score;
     }*/
-   /* public void ReturnMenu()
+    public void ReturnMenu()
     {
         string saveScore = PlayerPrefs.GetString("save");
         string [] users = saveScore.Split('|');
@@ -50,4 +50,4 @@ private int score = 0;
         PlayerPrefs.SetString("save", saveScore);
         SceneManager.LoadScene(0);
     }
-}*/
+}

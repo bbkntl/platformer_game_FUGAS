@@ -4,23 +4,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEditor;
 
 
 public class Player : MonoBehaviour
 {
+    const int ForceArrow= 400;
     [SerializeField] private float speed = 3f;
     [SerializeField] private int health = 3;
+    //[SerializeField] private GameObject[] objHearts;
     [SerializeField] private float jumpForce = 15f;
-    [SerializeField] private TextMeshProUGUI textCoins;
-    [SerializeField] private bool isMobileController = false;
+   // [SerializeField] private TextMeshProUGUI textCoins;
+    //[SerializeField] private bool isMobileController = false;
     [SerializeField] private GameUI gameUI;
+    [SerializeField] private Rigidbody2D arrow;
+    //[SerializeField] private Rigidbody2D AddForce;
     [SerializeField] private Transform startPoint;
     [SerializeField] private Transform cheakPoint;
     //[SerializeField] private Transform sensorGround;
      //[SerializeField] private Transform transChild;
    
-   // private bool isGrounded = false;
-    private bool isGrounded;
+   private bool isGrounded = false;
+    //private bool isGrounded;
     public float move;
     private bool isRight = true;
     private Rigidbody2D rb;
@@ -29,6 +35,9 @@ public class Player : MonoBehaviour
     public int coinsCount = 0;
     public int weaponCount = 0;
     public int healthCount = 3;
+    private int arrowCount = 0;
+    //public static Player Instance {get; set;}
+    //private Bullet bullet;
     /*public int CoinsCount
     {
         get => coinsCount;
@@ -45,11 +54,42 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+      
+       
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponent<Animator>();
+       // bullet = Prefab.Load<Bullet>("Bullet");
         //SceneManager.sceneLoaded += LevelLoaded;
     }
+   private void Start() 
+   {
+    gameUI.SetCountArrowUI(arrowCount);
+    //LoadData();
+   }
+    /*void LoadData()
+    {
+      if(PlayerPrefs.HasKey("PlayerHealth"))
+      {
+        coinsCount = PlayerPrefs.GetInt("PlayerCoins");
+        gameUI.SetCountCoinsUI(coinsCount);
+
+        health = PlayerPrefs.GetInt("PlayerHealth");
+        gameUI.SetCountHealthUI(health);
+        
+        arrowCount = PlayerPrefs.GetInt("PlayerArrow");
+        gameUI.SetCountArrowUI(arrowCount);
+      }
+    }
+
+    public void SaveData()
+    {
+        PlayerPrefs.SetInt("PlayerCoins", coinsCount);
+        PlayerPrefs.SetInt("PlayerHealth", health);
+        PlayerPrefs.SetInt("PlayerArrow", arrowCount);
+        PlayerPrefs.Save();
+    }*/
+   
     /*void Stast()
     {
         SetValueInUI();
@@ -95,22 +135,48 @@ public class Player : MonoBehaviour
        }*/
       
      // if(Time.timeScale >=1)
+       
        if (isGrounded) State = States.idle;
        
-        if (Input.GetButton("Horizontal"))
-        
-            Run();
-        if (isGrounded && Input.GetButtonDown("Jump"))
-            Jump();
+        //if (Input.GetButton("Fire1")) Shoot();
+        if (Input.GetButton("Horizontal")) Run();
+        if (isGrounded && Input.GetButtonDown("Jump")) Jump();
+       Attack();
     }
+     
+     /* private void OnApplicationQuit() 
+      {
+        PlayerPrefs.DeleteAll();
+      }*/
+        
+      
+     
+     private void Attack()
+     {
+        if(Input.GetKeyDown(KeyCode.Return)&& arrowCount >0)
+        {
+            arrowCount --;
+            gameUI.SetCountArrowUI(arrowCount);
+             Rigidbody2D tempArrow = Instantiate(arrow, transform.position, Quaternion.identity);
+            tempArrow.AddForce(new Vector2(isRight ? ForceArrow : -ForceArrow, 0 ));
+            if(!isRight)
+            {
+                SpriteRenderer srArrow = tempArrow.GetComponentsInChildren<SpriteRenderer>()[1];
+                srArrow.flipX = true;
+                srArrow.flipY = true;
 
+            }
+        }
+
+     }
+   
     private void Run()
     {
         if (isGrounded) State = States.run;
 
         Vector3 dir = transform.right * Input.GetAxis("Horizontal"); 
         
-        Input.GetAxis("Horizontal");
+       // Input.GetAxis("Horizontal");
 
         transform.position = Vector3.MoveTowards(transform.position, transform.position + dir, speed * Time.deltaTime);
 
@@ -121,7 +187,14 @@ public class Player : MonoBehaviour
     {
         rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
     }
- 
+ /*private void Attack()
+ {
+    Vector3 position = transform.position;
+    position.y +=0.8f;
+    Bullet newBullet =Instantiate(bullet, position, transform.rotation) as Bullet;
+    newBullet.Direction = newBullet.transform.right * (sprite.flipX ? -1f : 1f);
+ }*/
+
 /*private void Jump()
  {
     //isGrounded = Physics2D.OverlapCircleAll(sensorGround.position, 0.3f).Length>1;
@@ -134,7 +207,7 @@ public class Player : MonoBehaviour
     anim.SetBool("isGrounded", isGrounded);
  }*/
 
- public void JumpMobile()
+ /*public void JumpMobile()
  {
    isGrounded = Physics2D.OverlapCircleAll(transform.position + Vector3.down, 0.3f).Length>1;
     if(isGrounded)
@@ -142,7 +215,7 @@ public class Player : MonoBehaviour
         rb.AddForce(Vector2.up * jumpForce);
     }
    
- }
+ }*/
  void Flip(float move)
  {
     if(move<0 && isRight)
@@ -165,15 +238,30 @@ public class Player : MonoBehaviour
         if (!isGrounded) State = States.jump;
     }
 
+    /*public override void GetDamage()
+    {
+        health -= 1;
+        Debug.Log(health);
+    }*/
+
  private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Coins")
         {
             coinsCount += 10;
-            textCoins.text = coinsCount.ToString();
+            gameUI.SetCountCoinsUI(coinsCount);
+           // textCoins.text = coinsCount.ToString();
             GameObject coins = collision.gameObject;
             Destroy(coins);
         }
+       else if(collision.tag == "Arrow")
+       {
+        //int count = collision.GetComponent<Item>().count;
+       // arrowCount += count;
+        arrowCount += 3;
+        gameUI.SetCountArrowUI(arrowCount);
+        Destroy(collision.gameObject);
+       }
        else if(collision.tag == "Hearts")
        {
             healthCount += 1;
@@ -218,7 +306,7 @@ public class Player : MonoBehaviour
         
         if(health == 0)
         {
-            Time.timeScale = 0;
+            Time.timeScale = 0.00001f ;
             gameUI.GameOver();
         }
         

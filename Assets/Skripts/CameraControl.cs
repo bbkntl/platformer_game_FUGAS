@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {
-    [SerializeField] Transform player;
+   [SerializeField] Transform player;
     [SerializeField] float sensetyCam = 5;
     Transform cameraTransform;
     Vector3 deltaPosCam;
@@ -22,7 +22,22 @@ public class CameraControl : MonoBehaviour
         cameraTransform.position = Vector3.MoveTowards(cameraTransform.position, target, Time.deltaTime * sensetyCam);
     }
 }
+/*[SerializeField]
+private float speed = 2f;
+[SerializeField]
+private Transform target;
 
+private void Awake()
+{
+    if(!target) target = FindObjectOfType<Player>().transform;
+}
+
+private void Update() 
+{
+    Vector3 position = target.position; position.z = -10f;
+    transform.position = Vector3.Lerp(transform.position, position, speed * Time.deltaTime);
+}
+}*/
      
    
 
