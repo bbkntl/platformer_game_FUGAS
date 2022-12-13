@@ -2544,7 +2544,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 738250656}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.09, y: -0.67, z: -268.4931}
+  m_LocalPosition: {x: -3.05, y: -1.06, z: -268.4931}
   m_LocalScale: {x: 1.7557788, y: 1.6176186, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2592,7 +2592,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300034, guid: f6a737996a4a842e58ba28428e71d711, type: 3}
+  m_Sprite: {fileID: 21300032, guid: f6a737996a4a842e58ba28428e71d711, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4607,6 +4607,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1245563661 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6294107451330255833, guid: 31e8a58f05d295c4b9ea5985b4fce07e, type: 3}
+  m_PrefabInstance: {fileID: 922339737}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1245563662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245563661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e825e380521b1f4da211e519adf1d14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cheakPoint: {fileID: 1806702943}
 --- !u!1001 &1272134432
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6215,24 +6233,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1806702942 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6294107451166042158, guid: 31e8a58f05d295c4b9ea5985b4fce07e, type: 3}
+--- !u!4 &1806702943 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6294107451166042157, guid: 31e8a58f05d295c4b9ea5985b4fce07e, type: 3}
   m_PrefabInstance: {fileID: 922339737}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1806702946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1806702942}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e825e380521b1f4da211e519adf1d14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cheakPoint: {fileID: 823735431}
 --- !u!1 &1832441516
 GameObject:
   m_ObjectHideFlags: 0

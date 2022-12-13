@@ -16,6 +16,7 @@ public class UserDataController : MonoBehaviour
     public static UserDataController Instance { get; private set; }
 
     public UserData userData;
+    public int LastLevel;
 
     private string PATH => Application.persistentDataPath + "/UserData.txt";
 

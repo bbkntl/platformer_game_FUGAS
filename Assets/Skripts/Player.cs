@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
     public int weaponCount = 0;
     public int healthCount = 3;
     private int arrowCount = 0;
+   // public Vector3 cheakPoint;
     //public static Player Instance {get; set;}
     //private Bullet bullet;
     /*public int CoinsCount
@@ -73,8 +74,9 @@ public int arrows
        // bullet = Prefab.Load<Bullet>("Bullet");
         //SceneManager.sceneLoaded += LevelLoaded;
     }
-   private void Start() 
+    void Start() 
    {
+    //cheakPoint = transform.position;
     //gameUI.SetCountArrowUI(arrowCount);
     //LoadData();
    }

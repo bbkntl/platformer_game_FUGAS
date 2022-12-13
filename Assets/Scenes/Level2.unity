@@ -2351,6 +2351,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: checpoint
       objectReference: {fileID: 0}
+    - target: {fileID: 6294107451330255833, guid: 31e8a58f05d295c4b9ea5985b4fce07e, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31e8a58f05d295c4b9ea5985b4fce07e, type: 3}
 --- !u!1 &927715073 stripped
@@ -3278,6 +3282,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1140954635 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6294107451330255833, guid: 31e8a58f05d295c4b9ea5985b4fce07e, type: 3}
+  m_PrefabInstance: {fileID: 922339737}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1140954636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140954635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e825e380521b1f4da211e519adf1d14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cheakPoint: {fileID: 1806702943}
 --- !u!1001 &1140982243
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5144,24 +5166,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.52, y: 1.51}
   m_EdgeRadius: 0
---- !u!1 &1806702942 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6294107451166042158, guid: 31e8a58f05d295c4b9ea5985b4fce07e, type: 3}
+--- !u!4 &1806702943 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6294107451166042157, guid: 31e8a58f05d295c4b9ea5985b4fce07e, type: 3}
   m_PrefabInstance: {fileID: 922339737}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1806702946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1806702942}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e825e380521b1f4da211e519adf1d14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cheakPoint: {fileID: 823735431}
 --- !u!1 &1827823832 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 60683114213818698, guid: c06ff6ec14baa30428cb659a2bfc7d1b, type: 3}

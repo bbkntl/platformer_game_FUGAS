@@ -2,17 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Game_Menu : MonoBehaviour
 {
  
-
+/*public Button continueButton;
+    
+     void Start() 
+     {
+        if(UserDataController.Instance.LastLevel = 0)
+        {
+            continueButton.interactable = false;
+        }
+    }*/
+    
     public void StartGame()
     {
         SceneManager.LoadScene(4);
         Time.timeScale = 1f;
         UserDataController.Instance.ResetData();
+       
     }
+    public void ContinueMainMenu()
+    {
+        SceneManager.LoadScene(UserDataController.Instance.LastLevel);
+        Time.timeScale = 1f;
+    }
+    
     public void Exit()
     {
 
@@ -58,6 +75,7 @@ public class Game_Menu : MonoBehaviour
     public void MenuGame()
     {
         SceneManager.LoadScene(0);
+         UserDataController.Instance.LastLevel = SceneManager.GetActiveScene().buildIndex;
     }
     public void RestartGame1()
     {

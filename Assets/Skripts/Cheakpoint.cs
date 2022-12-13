@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Cheakpoint : MonoBehaviour
 {
-    [SerializeField] private Transform cheakPoint;
+   [SerializeField] private Transform cheakPoint;
     private void OnTriggerEnter2D(Collider2D collision)
    {
     
@@ -14,4 +14,14 @@ public class Cheakpoint : MonoBehaviour
         collision.transform.position = cheakPoint.position;
     }
    }
+/*private void OnTriggerEnter2D(Collider2D collision)
+   {
+    
+    if(collision.tag == "Player")
+    {
+        
+        collision.GetComponent<Player>().cheakPoint = transform.position;
+    }
+   }*/
+
 }
