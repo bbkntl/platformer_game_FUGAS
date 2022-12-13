@@ -1,27 +1,33 @@
-/*using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
-[System.Serializable]
+
+
+[Serializable]
 public class UserData
 {
-public int Coins;
-public int Weapon;
-public int Hearts;
+    public int Coins;
+    public int Arrows;
+    public int Health;
+    
 }
+
 public class UserDataController : MonoBehaviour
 {
-    public static UserDataController Instance{get; private set;}
+    public static UserDataController Instance { get; private set; }
+
     public UserData userData;
+
     private string PATH => Application.persistentDataPath + "/UserData.txt";
-    
-    private void Awake() 
+
+    private void Awake()
     {
         if (Instance == null)
         {
-        DontDestroyOnLoad(gameObject);
-        Instance = this;
-        print("Create instance");
-        LoadData();
+            DontDestroyOnLoad(gameObject);
+            Instance = this;
+            print("Create instance");
+
+            LoadData();
         }
         else
         {
@@ -29,52 +35,91 @@ public class UserDataController : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     private void LoadData()
     {
-        if(System.IO.File.Exists(PATH))
+        if (System.IO.File.Exists(PATH))
         {
             print("load exists user data");
             string json = System.IO.File.ReadAllText(PATH);
-            UserData = JsonUtility.FromJson<UserData>(json);
+            userData = JsonUtility.FromJson<UserData>(json);
         }
         else
         {
-         print("create new user data");
-         UserData = new UserData();
-         UserData.Coins = 0;
-         UserData.Weapon = 0;
-         UserData.Hearts = 3;
-
+            print("create new user data");
+            userData = new UserData();
+            userData.Coins = 0;
+            userData.Arrows = 0;
+           
+            userData.Health = 3;
         }
     }
-    private void SaveData()
-    {
-       string json = JsonUtility.ToJson(UserData);
-       System.IO.File.WriteAllText(PATH, json);
-       print(json);
 
-    }
-    public void AddHearts(int hearts)
+    public void SaveData()
     {
-        UserData.Hearts += hearts;
+        string json = JsonUtility.ToJson(userData);
+        System.IO.File.WriteAllText(PATH, json);
+        print(json);
+    }
+
+    public void AddHealth(int hp)
+    {
+        userData.Health += hp;
         SaveData();
     }
+
+    public void RemoveHealth(int hp)
+    {
+        userData.Health -= hp;
+        SaveData();
+    }
+
+    public void RemoveArrows(int removeArrows)
+    {
+        userData.Arrows -= removeArrows;
+        SaveData();
+    }
+
     public void AddCoins(int coins)
     {
-        UserData.Coins += coins;
+        userData.Coins += coins;
         SaveData();
     }
-public void AddWeapon(int weapon)
+
+    /*public void AddCrystals(int amount)
     {
-        UserData.Weapon += weapon;
+        userData.Crystals += amount;
+        SaveData();
+    }*/
+
+    public void AddArrows(int amount)
+    {
+        userData.Arrows += amount;
         SaveData();
     }
+
     public void ResetData()
     {
-        UserData = new UserData();
-        UserData.Coins = 0;
-         UserData.Weapon = 0;
-         UserData.Hearts = 3;
-         SaveData();
+        userData.Coins = 0;
+        
+        userData.Arrows = 0;
+        userData.Health = 3;
     }
-}*/
+
+    public void ResetCoins()
+    {
+        userData.Coins = 0;
+    }
+
+    
+    public void ResetArrows()
+    {
+        userData.Arrows = 0;
+    }
+
+    public void ResetHealth()
+    {
+        userData.Health = 3;
+    }
+
+}

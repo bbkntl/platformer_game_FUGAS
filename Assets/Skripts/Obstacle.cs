@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-     int hp = 3;
+     int hp = 5;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.tag == "Arrow")

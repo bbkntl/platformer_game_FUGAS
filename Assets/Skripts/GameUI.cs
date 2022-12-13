@@ -9,12 +9,12 @@ public class GameUI : MonoBehaviour
     [SerializeField] private GameObject[] objHearts;
     [SerializeField] private GameObject panelGameOver;
     [SerializeField] private TextMeshProUGUI textCoins;
-    [SerializeField] private TextMeshProUGUI textArrow;
+    [SerializeField] private TextMeshProUGUI textArrows;
     
    
    
-    public int health = 3;
-    private int maxHealth = 3;
+    //public int health = 3;
+    /*private int maxHealth = 3;
     public void AddHearts()
     {
         health++;
@@ -23,6 +23,15 @@ public class GameUI : MonoBehaviour
         {
             health = maxHealth;
         }
+    }*/
+    
+     private void Start()
+    {
+        UserData data = UserDataController.Instance.userData;
+        UpdateHearts(data.Health);
+        textCoins.text = data.Coins.ToString();
+        
+        textArrows.text = data.Arrows.ToString();
     }
     public void GameOver()
     {
@@ -33,9 +42,9 @@ public class GameUI : MonoBehaviour
     {
       textCoins.text = countCoins.ToString();
     }
-     public void SetCountArrowUI(int countArrow)
+     public void SetCountArrowsUI(int countArrows)
     {
-      textArrow.text = countArrow.ToString();
+      textArrows.text = countArrows.ToString();
     }
     /*public void SetCountHealthUI(int countHealth)
     {
@@ -44,12 +53,12 @@ public class GameUI : MonoBehaviour
       textArrow.text = countArrow.ToString();
     }*/
     
-    public void RemuveHearts()
+    /*public void RemuveHearts()
     {
         health--;
         UpdateHearts();
-    }
-    void UpdateHearts()
+    }*/
+    public void UpdateHearts(int health)
     {
         for(int i =0; i<3; i++)
         {

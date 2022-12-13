@@ -2589,8 +2589,7 @@ MonoBehaviour:
   - {fileID: 6006815481213172092}
   panelGameOver: {fileID: 815749393}
   textCoins: {fileID: 6006815480663233763}
-  textArrow: {fileID: 482165414079570364}
-  health: 3
+  textArrows: {fileID: 482165414079570364}
 --- !u!4 &960598922 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1856916206545748106, guid: 436d3980b4ed0a1469a7c032268aa718, type: 3}
@@ -4179,6 +4178,74 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1095674914213304355}
   sensetyCam: 8
+--- !u!1001 &1399161188
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4740425522494987986, guid: 40437d5ac96fb4f44bbf77561f11c553, type: 3}
+      propertyPath: m_RootOrder
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4740425522494987986, guid: 40437d5ac96fb4f44bbf77561f11c553, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4740425522494987986, guid: 40437d5ac96fb4f44bbf77561f11c553, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4740425522494987986, guid: 40437d5ac96fb4f44bbf77561f11c553, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4740425522494987986, guid: 40437d5ac96fb4f44bbf77561f11c553, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4740425522494987986, guid: 40437d5ac96fb4f44bbf77561f11c553, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4740425522494987986, guid: 40437d5ac96fb4f44bbf77561f11c553, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4740425522494987986, guid: 40437d5ac96fb4f44bbf77561f11c553, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4740425522494987986, guid: 40437d5ac96fb4f44bbf77561f11c553, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4740425522494987986, guid: 40437d5ac96fb4f44bbf77561f11c553, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4740425522494987986, guid: 40437d5ac96fb4f44bbf77561f11c553, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8297694134912353534, guid: 40437d5ac96fb4f44bbf77561f11c553, type: 3}
+      propertyPath: m_Name
+      value: UserDataController
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 40437d5ac96fb4f44bbf77561f11c553, type: 3}
+--- !u!114 &1399161189 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5857574103677455039, guid: 40437d5ac96fb4f44bbf77561f11c553, type: 3}
+  m_PrefabInstance: {fileID: 1399161188}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2efdaaf2bae33b540ba2b2e76e004203, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1416315353
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5994,6 +6061,7 @@ MonoBehaviour:
   arrow: {fileID: 9161091530950897354, guid: 6349a8891494fd543a1e151a7d598b00, type: 3}
   startPoint: {fileID: 1641651464}
   cheakPoint: {fileID: 823735431}
+  userDataController: {fileID: 1399161189}
   move: 0
   coinsCount: 0
   weaponCount: 0

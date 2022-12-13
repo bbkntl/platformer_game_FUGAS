@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
     //[SerializeField] private Rigidbody2D AddForce;
     [SerializeField] private Transform startPoint;
     [SerializeField] private Transform cheakPoint;
+     [SerializeField] private UserDataController userDataController;
+
     //[SerializeField] private Transform sensorGround;
      //[SerializeField] private Transform transChild;
    
@@ -45,7 +47,16 @@ public class Player : MonoBehaviour
     
     
 
+public int coins
+{
+    get => UserDataController.Instance.userData.Coins;
+}
+public int arrows
+{
+    get => UserDataController.Instance.userData.Arrows;
+}
 
+    
     private States State
     {
         get {return (States)anim.GetInteger("state");}
@@ -64,7 +75,7 @@ public class Player : MonoBehaviour
     }
    private void Start() 
    {
-    gameUI.SetCountArrowUI(arrowCount);
+    //gameUI.SetCountArrowUI(arrowCount);
     //LoadData();
    }
     /*void LoadData()
@@ -153,17 +164,21 @@ public class Player : MonoBehaviour
      
      private void Attack()
      {
-        if(Input.GetKeyDown(KeyCode.Return)&& arrowCount >0)
+        //if(Input.GetKeyDown(KeyCode.Return)&& arrowCount >0)
+        if(Input.GetKeyDown(KeyCode.Return)&& UserDataController.Instance.userData.Arrows >0)
         {
-            arrowCount --;
-            gameUI.SetCountArrowUI(arrowCount);
+            UserDataController.Instance.RemoveArrows(1);
+            gameUI.SetCountArrowsUI(UserDataController.Instance.userData.Arrows);
+            anim.SetTrigger("Attack");
+            /*arrowCount --;
+            gameUI.SetCountArrowUI(arrowCount);*/
              Rigidbody2D tempArrow = Instantiate(arrow, transform.position, Quaternion.identity);
             tempArrow.AddForce(new Vector2(isRight ? ForceArrow : -ForceArrow, 0 ));
             if(!isRight)
             {
                 SpriteRenderer srArrow = tempArrow.GetComponentsInChildren<SpriteRenderer>()[1];
-                srArrow.flipX = true;
-                srArrow.flipY = true;
+                srArrow.flipX = false;
+                //srArrow.flipY = true;
 
             }
         }
@@ -248,29 +263,40 @@ public class Player : MonoBehaviour
     {
         if (collision.tag == "Coins")
         {
-            coinsCount += 10;
+            /*coinsCount += 10;
             gameUI.SetCountCoinsUI(coinsCount);
            // textCoins.text = coinsCount.ToString();
             GameObject coins = collision.gameObject;
-            Destroy(coins);
+            Destroy(coins);*/
+             UserDataController.Instance.AddCoins (10);
+            gameUI.SetCountCoinsUI(UserDataController.Instance.userData.Coins);
+            Destroy(collision.gameObject);
         }
        else if(collision.tag == "Arrow")
        {
         //int count = collision.GetComponent<Item>().count;
        // arrowCount += count;
-        arrowCount += 3;
+        /*arrowCount += 3;
         gameUI.SetCountArrowUI(arrowCount);
-        Destroy(collision.gameObject);
+        Destroy(collision.gameObject);*/
+        UserDataController.Instance.AddArrows(2);
+            gameUI.SetCountArrowsUI(UserDataController.Instance.userData.Arrows);
+            Destroy(collision.gameObject);
        }
-       else if(collision.tag == "Hearts")
+       /*else if(collision.tag == "Hearts")
        {
             healthCount += 1;
             
             GameObject health = collision.gameObject;
             Destroy(health);
-       }
+       }*/
+      
         
     }
+
+    
+   
+    
      private void Return()
    {
     
@@ -292,32 +318,44 @@ public class Player : MonoBehaviour
             Damage();
              
         }
-        else if ( collision.transform.tag == "Hearts")
+        /*else if ( collision.transform.tag == "Hearts")
         {
             Add();
+        }*/
+        else  if (collision.transform.tag == "Obstacle")
+        {
+            Damage();
         }
     }
     private void Damage()
     {
-        health--;
-        gameUI.RemuveHearts();
+        //health--;
+        //gameUI.RemuveHearts();
         Return();
         //SAvePlayer();
         
-        if(health == 0)
+        /*if(health == 0)
         {
             Time.timeScale = 0.00001f ;
+            gameUI.GameOver();
+        }*/
+       UserDataController.Instance.RemoveHealth(1);
+        gameUI.UpdateHearts(UserDataController.Instance.userData.Health);
+        if (UserDataController.Instance.userData.Health == 0)
+        {
+            Time.timeScale = 0;
+            UserDataController.Instance.ResetHealth();
             gameUI.GameOver();
         }
         
     }
-    private void Add()
+    /*private void Add()
     {
         health++;
         gameUI.AddHearts();
        
         
-    }
+    }*/
 }
 
 public enum States 

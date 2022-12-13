@@ -11,6 +11,7 @@ public class Game_Menu : MonoBehaviour
     {
         SceneManager.LoadScene(4);
         Time.timeScale = 1f;
+        UserDataController.Instance.ResetData();
     }
     public void Exit()
     {
@@ -21,32 +22,38 @@ public class Game_Menu : MonoBehaviour
     public void Levels()
     {
         SceneManager.LoadScene(1);
+         UserDataController.Instance.ResetData();
         
     }
     public void Levels1()
     {
         SceneManager.LoadScene(4);
         Time.timeScale = 1f;
+         UserDataController.Instance.ResetData();
     }
     public void Levels2()
     {
         SceneManager.LoadScene(5);
         Time.timeScale = 1f;
+         UserDataController.Instance.ResetData();
     }
     public void Levels3()
     {
         SceneManager.LoadScene(6);
         Time.timeScale = 1f;
+         UserDataController.Instance.ResetData();
     }
     public void Levels4()
     {
         SceneManager.LoadScene(7);
         Time.timeScale = 1f;
+         UserDataController.Instance.ResetData();
     }
     public void Levels5()
     {
         SceneManager.LoadScene(8);
         Time.timeScale = 1f;
+         UserDataController.Instance.ResetData();
     }
     public void MenuGame()
     {
@@ -84,6 +91,7 @@ public class Game_Menu : MonoBehaviour
     public void Records()
     {
         SceneManager.LoadScene(3);
+        UserDataController.Instance.ResetData();
     }
     public void Settings()
     {
