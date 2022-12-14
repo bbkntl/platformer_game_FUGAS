@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 public class GameUIControler : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI textUserName;
-   [SerializeField] private TextMeshProUGUI textScore;
-   private int score = 0;
+  // [SerializeField] private TextMeshProUGUI textScore;
+  // private int score = 0;
     void Start()
     {
       textUserName.text = SingUserData.singletone.userName;  
@@ -23,12 +23,12 @@ public class GameUIControler : MonoBehaviour
     }*/
     public void ReturnMenu()
     {
-        string saveScore = PlayerPrefs.GetString("save");
-        string [] users = saveScore.Split('|');
+        //string saveScore = PlayerPrefs.GetString("save");
+       // string [] users = saveScore.Split('|');
         string userName = SingUserData.singletone.userName;
         bool isNewUser = true;
-        saveScore = "";
-        for(int i = 0; i < users.Length-1; i++)
+        //saveScore = "";
+        /*for(int i = 0; i < users.Length-1; i++)
         {
             string [] userInfo = users[i].Split(':');
             if(userInfo[0] == userName)
@@ -49,5 +49,6 @@ public class GameUIControler : MonoBehaviour
         
         PlayerPrefs.SetString("save", saveScore);
         SceneManager.LoadScene(0);
+    }*/
     }
 }

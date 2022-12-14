@@ -87,11 +87,7 @@ public class UserDataController : MonoBehaviour
         SaveData();
     }
 
-    /*public void AddCrystals(int amount)
-    {
-        userData.Crystals += amount;
-        SaveData();
-    }*/
+    
 
     public void AddArrows(int amount)
     {

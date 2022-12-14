@@ -17,6 +17,7 @@ public class Game_Menu : MonoBehaviour
         }
     }*/
     
+    
     public void StartGame()
     {
         SceneManager.LoadScene(4);
@@ -106,11 +107,11 @@ public class Game_Menu : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
-    public void Records()
+    /*public void Records()
     {
         SceneManager.LoadScene(3);
         UserDataController.Instance.ResetData();
-    }
+    }*/
     public void Settings()
     {
         SceneManager.LoadScene(2);
